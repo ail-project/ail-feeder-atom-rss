@@ -1,2 +1,7 @@
 pyail
 trafilatura
+feedparser
+newspaper3k
+redis
+validators
+urlextract
