@@ -137,10 +137,14 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--verbose", help="verbose output", action="store_true")
 parser.add_argument("--nocache", help="disable cache", action="store_true")
 parser.add_argument("--urlextract", help="extract urls", action="store_true")
+parser.add_argument("--link", help="single link to be extracted", type=str, default='')
 args = parser.parse_args()
 
 with open("links.txt") as f:
-    for link in f.readlines():
+    lines = f.readlines()
+    if args.link != '':
+        lines.append(args.link)
+    for link in lines:
         # Find feeds from the given link
         # feedUrls = feeds.find_feed_urls(link)
         feedUrls = []
